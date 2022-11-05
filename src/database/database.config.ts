@@ -10,4 +10,5 @@ export const dataSourceOptions = {
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   logging: process.env.DB_LOGGING,
+  synchronize: process.env.DB_SYNC as unknown as boolean,
 };
