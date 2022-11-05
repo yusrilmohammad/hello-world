@@ -1,11 +1,12 @@
 const express = require('express')
-let app = express();  // Compliant
-app.disable("x-powered-by");
+const app = express();
+//let app = express();  // Compliant
+//app.disable("x-powered-by");
 
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.send('Hello World!, test 1')
+  res.send('test 2')
 })
 
 app.listen(port, () => {
