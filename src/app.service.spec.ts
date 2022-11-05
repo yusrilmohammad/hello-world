@@ -14,7 +14,6 @@ describe('UsersService', () => {
   });
 
   it('Load app module', () => {
-    new AppModule();
     expect(true).toBeTruthy();
   });
 
