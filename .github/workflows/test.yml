@@ -26,3 +26,9 @@ jobs:
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - uses: vishnudxb/cancel-workflow@v1.2
+        if: failure()
+        with:
+          repo: yusrilmohammad/sonarqube-test
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ github.token }}
