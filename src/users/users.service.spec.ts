@@ -2,14 +2,16 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { CreateUserDto } from './users.dto';
 import { User } from './users.entity';
-
 import { UsersService } from './users.service';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 describe('UsersService', () => {
   let service: UsersService;
   const userMock = {
     username: 'john',
-    password: '!S3cret',
+    password: process.env.DB_PASSWORD,
     email: 'john@gmail.com',
   };
 
@@ -39,13 +41,13 @@ describe('UsersService', () => {
   it('createUser', async () => {
     const user: CreateUserDto = {
       username: 'john',
-      password: '!S3cret',
+      password: process.env.DB_PASSWORD,
       email: 'john@gmail.com',
     };
     const res = await service.createUser(user);
     expect(res).toStrictEqual({
       username: 'john',
-      password: '!S3cret',
+      password: process.env.DB_PASSWORD,
       email: 'john@gmail.com',
     });
   });
@@ -55,7 +57,7 @@ describe('UsersService', () => {
     expect(users).toStrictEqual([
       {
         username: 'john',
-        password: '!S3cret',
+        password: process.env.DB_PASSWORD,
         email: 'john@gmail.com',
       },
     ]);
@@ -65,7 +67,7 @@ describe('UsersService', () => {
     const user = await service.findUsersById(1);
     expect(user).toStrictEqual({
       username: 'john',
-      password: '!S3cret',
+      password: process.env.DB_PASSWORD,
       email: 'john@gmail.com',
     });
   });

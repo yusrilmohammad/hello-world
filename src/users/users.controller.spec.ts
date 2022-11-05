@@ -3,12 +3,15 @@ import { getRepositoryToken } from '@nestjs/typeorm';
 import { User } from './users.entity';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 describe('UsersController', () => {
   let controller: UsersController;
   const userMock = {
     username: 'john',
-    password: '!S3cret',
+    password: process.env.DB_PASSWORD,
     email: 'john@gmail.com',
   };
 
@@ -40,7 +43,7 @@ describe('UsersController', () => {
     const res = await controller.createUsers(userMock);
     expect(res).toStrictEqual({
       username: 'john',
-      password: '!S3cret',
+      password: process.env.DB_PASSWORD,
       email: 'john@gmail.com',
     });
   });
@@ -50,7 +53,7 @@ describe('UsersController', () => {
     expect(res).toStrictEqual([
       {
         username: 'john',
-        password: '!S3cret',
+        password: process.env.DB_PASSWORD,
         email: 'john@gmail.com',
       },
     ]);
@@ -60,7 +63,7 @@ describe('UsersController', () => {
     const res = await controller.findUsersById(1);
     expect(res).toStrictEqual({
       username: 'john',
-      password: '!S3cret',
+      password: process.env.DB_PASSWORD,
       email: 'john@gmail.com',
     });
   });
