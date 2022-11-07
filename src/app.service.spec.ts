@@ -1,5 +1,5 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { AppService } from './app.service';
+import {Test, TestingModule} from '@nestjs/testing';
+import {AppService} from './app.service';
 
 describe('UsersService', () => {
   let service: AppService;
@@ -21,6 +21,6 @@ describe('UsersService', () => {
   });
 
   it('hello world', () => {
-    expect(service.getHello()).toBe('Hello World!');
+    expect(service.getHello()).toBe('Hello Sonarqube!');
   });
 });
