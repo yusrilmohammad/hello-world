@@ -10,6 +10,7 @@ RUN npm ci --omit=dev
 FROM node:16.15.1-alpine3.16
 
 WORKDIR /app
+COPY --from=BASEIMAGE /app/.env /app/.env
 COPY --from=BASEIMAGE /app/dist /app/dist
 COPY --from=BASEIMAGE /app/node_modules /app/node_modules
 
