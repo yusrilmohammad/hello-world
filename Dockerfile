@@ -15,7 +15,7 @@ COPY --from=BASEIMAGE /app/dist /app/dist
 COPY --from=BASEIMAGE /app/node_modules /app/node_modules
 
 #Set Timezone
-RUN apk add --no-cache tzdata
+RUN apk add --no-cache tzdata curl
 ENV TZ=Asia/Jakarta
 
 EXPOSE 3000
