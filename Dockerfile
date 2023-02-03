@@ -21,5 +21,4 @@ ENV TZ=Asia/Jakarta
 EXPOSE 3000
 
 RUN npm install nodemon --location=global
-#CMD ["node", "dist/main.js"]
-CMD ["nodemon", "dist/main.js"]
+CMD ["node", "dist/main.js"]
