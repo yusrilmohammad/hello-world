@@ -21,6 +21,6 @@ describe('UsersService', () => {
   });
 
   it('hello world', () => {
-    expect(service.getHello()).toBe('Hello Sonarqube!');
+    expect(service.getHello()).toBe('Test Service is running!');
   });
 });
